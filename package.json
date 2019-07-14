@@ -1,0 +1,33 @@
+{
+  "name": "put-file-2-s3-from-client",
+  "version": "1.0.0",
+  "description": "AWS - Put file to S3 from client",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvt108/put-file-2-s3-from-client.git"
+  },
+  "keywords": [
+    "aws",
+    "nodejs",
+    "file",
+    "upload",
+    "signedurl",
+    "client",
+    "to",
+    "s3"
+  ],
+  "author": "Trung Nguyen <nvtrung108@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nvt108/put-file-2-s3-from-client/issues"
+  },
+  "homepage": "https://github.com/nvt108/put-file-2-s3-from-client#readme",
+  "dependencies": {
+    "aws-sdk": "^2.493.0",
+    "express": "^4.17.1"
+  }
+}

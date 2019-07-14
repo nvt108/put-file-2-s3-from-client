@@ -1,0 +1,34 @@
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+<form action="/upload" enctype="multipart/form-data" method="POST">
+    <input type="file" id="fileInput" name="fileInput" />
+    <input type="button" id="button" value="Upload Photo"/>
+    <br /><br />
+    Url:<a href="" target="_blank" class="new_url"></a><br /><br />
+</form>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#button').click(function() {
+            var files = $('#fileInput').prop('files')[0];
+            var filename = "new_" +files.name;
+            var fd = new FormData();
+            fd.append( 'file', files );
+            var contentType = files.type;
+            $.get('http://localhost:3000/generatepresignedurl?fileName='+filename+'&type='+contentType, function(signedUrl) {
+                $.ajax({
+                    url: signedUrl,
+                    type: 'PUT',
+                    dataType: 'html',
+                    processData: false,
+                    headers: {'Content-Type': contentType},
+                    crossDomain: true,
+                    data: files
+                }).done(function(data,textStatus,error) {
+                    $(".new_url").html('https://s3-trungnv.s3.amazonaws.com/'+filename);
+                    $(".new_url").attr("href",'https://s3-trungnv.s3.amazonaws.com/'+filename);
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    alert("Error!");
+                });
+            });
+        });
+    });
+</script>
