@@ -14,7 +14,7 @@ config.bucket = "bucket name";
 config.signedUrlExpireSeconds  = 60 * 5;
 module.exports = config;
 ```
-#Setting permissions for S3 bucket
+# Setting permissions for S3 bucket
 - Access to: S3->yourbucket->Permissions tab->CORS configuration and add config like as below
 ```
 <?xml version="1.0" encoding="UTF-8"?>
